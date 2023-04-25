@@ -1,0 +1,6 @@
+{
+  "productcard": {
+    "component": "ProductCard",
+    "composition": "children"
+  }
+}
