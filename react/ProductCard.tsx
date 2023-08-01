@@ -61,7 +61,8 @@ const ProductCard: StorefrontFunctionComponent<ProductCardProps> = ({ productTit
     if (observer.current) observer.current.unobserve(cardRef.current);
   }
 
-  const kebob = (title: string) => title.replace(" ", "-").toLocaleLowerCase();
+  // @ts-expect-error - string.replaceAll() does not exist in VTEX's typescript library - LM
+  const kebob = (title: string) => title.replaceAll(" ", "-").toLocaleLowerCase();
 
   return (
     <section ref={cardRef} id={`${kebob(productTitle)}-card`} style={{ opacity: cardOpacity, transform: `scale(${cardScale})` }} className={styles.productCard} aria-labelledby={`${kebob(productTitle)}-title`}>
