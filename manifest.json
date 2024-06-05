@@ -1,12 +1,11 @@
 {
   "vendor": "eriksbikeshop",
   "name": "productcard",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "title": "ProductCard",
   "description": "ProductCard component",
   "defaultLocale": "pt-BR",
   "builders": {
-    "messages": "1.x",
     "store": "0.x",
     "react": "3.x"
   },
