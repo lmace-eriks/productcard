@@ -70,7 +70,7 @@ const ProductCard: StorefrontFunctionComponent<ProductCardProps> = ({ productTit
       <div className={styles.textContainer}>
         <h2 id={`${kebob(productTitle)}-title`} className={styles.productTitle}>{productTitle}</h2>
         {children}
-        {link.href && <Link href={link.href} className={styles.cardButton} >{link.text || `Shop The ${productTitle}`}</Link>}
+        {link.href && <Link to={link.href} className={styles.cardButton} >{link.text || `Shop The ${productTitle}`}</Link>}
       </div>
     </section>
   );

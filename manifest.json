@@ -1,7 +1,7 @@
 {
   "vendor": "eriksbikeshop",
   "name": "productcard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "title": "ProductCard",
   "description": "ProductCard component",
   "defaultLocale": "pt-BR",
