@@ -22,16 +22,7 @@
 .textContainer {}
 
 .cardButton {
-    display: block;
-    width: fit-content;
     margin: 0 auto;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    background-color: #ec1d24;
-    border: 2px solid white;
-    font-weight: bold;
 }
 
 /* Mobile Rules - LM */

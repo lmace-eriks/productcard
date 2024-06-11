@@ -6,6 +6,7 @@ import styles from "./styles.css";
 
 interface ProductCardProps {
   productTitle: string
+  navLink?: string,
   children: ReactChildren | any
   image: ImageObject
   link: LinkObject
@@ -24,7 +25,7 @@ interface LinkObject {
   text: string
 }
 
-const ProductCard: StorefrontFunctionComponent<ProductCardProps> = ({ productTitle, children, image, link, fadeIn }) => {
+const ProductCard: StorefrontFunctionComponent<ProductCardProps> = ({ productTitle, navLink, children, image, link, fadeIn }) => {
   const observer = useRef<IntersectionObserver>();
   const cardRef: any = useRef();
   const [cardOpacity, setCardOpacity] = useState(fadeIn === false ? 1 : 0.01);
@@ -62,15 +63,15 @@ const ProductCard: StorefrontFunctionComponent<ProductCardProps> = ({ productTit
   }
 
   // @ts-expect-error - string.replaceAll() does not exist in VTEX's typescript library - LM
-  const kebob = (title: string) => title.replaceAll(" ", "-").toLocaleLowerCase();
+  const kebob: (title: string) => string = (title: string) => title.replaceAll(" ", "-").toLocaleLowerCase();
 
   return (
-    <section ref={cardRef} id={`${kebob(productTitle)}-card`} style={{ opacity: cardOpacity, transform: `scale(${cardScale})` }} className={styles.productCard} aria-labelledby={`${kebob(productTitle)}-title`}>
+    <section ref={cardRef} id={`${kebob(productTitle)}-card`} aria-labelledby={`${kebob(productTitle)}-title`} data-nav-link={navLink || ""} className={styles.productCard} style={{ opacity: cardOpacity, transform: `scale(${cardScale})` }}>
       <img src={image.src} width={image.width || 450} height={image.height || 338} className={styles.cardImage} loading={fadeIn === false ? "eager" : "lazy"} />
       <div className={styles.textContainer}>
         <h2 id={`${kebob(productTitle)}-title`} className={styles.productTitle}>{productTitle}</h2>
         {children}
-        {link.href && <Link to={link.href} className={styles.cardButton} >{link.text || `Shop The ${productTitle}`}</Link>}
+        {link.href && <Link to={link.href} className={styles.cardButton} data-ebs-red-button >{link.text || `Shop The ${productTitle}`}</Link>}
       </div>
     </section>
   );
